@@ -26,7 +26,7 @@ app.get('/cadastro',function(req,res){
 })
 
 app.post('/cadastro', function(req,res){
-    var produto = new produto(
+    var produto = new Produto(
         {
           marca:req.body.marca,
           tipo:req.body.tipo,
@@ -37,9 +37,9 @@ app.post('/cadastro', function(req,res){
     
     produto.save(function(err){
         if (err) {
-            res.render('index.js', { "msg": err})
+            res.render('cadastro.ejs', { "msg": err})
         } else {
-            res.render('index.js', {"msg": 'Adicionado com sucesso'})
+            res.render('cadastro.ejs', {"msg": 'Adicionado com sucesso'})
         }
  
     })
